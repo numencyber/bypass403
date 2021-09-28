@@ -208,7 +208,7 @@ def run(loop,url,isBig):
 def fuzzOneurl(url,isBig):
     try:
         r = requests.get(url)
-        if r.status_code == 403:
+        if r.status_code != 403:
             yellowprint("[+] The Requets URL status_code is not 403. " + url)
         else:
             yellowprint("\n[+] -------- fuzzing bypass " + url + " is begining --------")
@@ -227,9 +227,9 @@ def parse_arguments(argv):
     isBig = False
 
     try:
-        opts, args = getopt.getopt(argv, "hu:l:r:b:o:", ["help", "url=", "filename=","burpfile=","isBig=","outputfile="])
+        opts, args = getopt.getopt(argv, "hu:l:r:o:", ["help", "url=", "filename=","isBig=","outputfile="])
     except getopt.GetoptError:
-        redprint('Error: bypass403.py -u <url> or: bypass403.py -l <filename> or: bypass403.py -r <burpfilename>')
+        redprint('Error: bypass403.py -u <url> or: bypass403.py -l <filename> ')
         sys.exit(2)
 
     if len(argv) < 1:
@@ -242,7 +242,6 @@ def parse_arguments(argv):
             greenprint("isBig param -b True or False, the default param is Farse")
             greenprint('bypass403.py -u <url>')
             greenprint("bypass403.py -l <filename> ")
-            greenprint("bypass403.py -r <burpfilename>")
 
             sys.exit()
 
