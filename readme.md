@@ -21,7 +21,7 @@ python3 bypass403.py -u https://www.example.com/admin -o example.txt
 
 ## Installation
 ```
-git clone https://github.com/NumencyberLabs/bypass403.git
+git clone https://github.com/Numencyber/bypass403.git
 cd bypass403
 pip3 install -r requirements.txt
 python3 bypass403.py -u https://www.example.com/admin
